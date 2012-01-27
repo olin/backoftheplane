@@ -1,0 +1,10 @@
+<div class="flight_result">
+    <%= link_to(image_tag("flight_button.png", :class => "flight_button", :width => 50, :height => 50), :controller => :ticket, :action => :flight, :id => flight.id) %>
+    <h3><%= link_to(flight.airline + " " + flight.flight_name.to_s.upcase,
+                    :controller => :ticket, 
+                    :action => :flight, 
+                    :id => flight.id) %></h3>
+    <p class="dateroute"><em><%= flight.flight_date.strftime("%m/%d/%Y") %></em>, <%= flight.airport_code_from %> to <%= flight.airport_code_to %></p>
+    <p><%= pluralize(flight.tickets.length, "passenger") %> on Back of the Plane</p>
+    <div class="spacer"></div>
+</div>

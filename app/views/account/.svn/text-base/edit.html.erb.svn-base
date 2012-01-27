@@ -1,0 +1,54 @@
+<% @title_text="User Information"%>
+<h2>Account Information for <%= @user.username %></h2>
+
+<h3>Edit your information:</h3>
+<div class="stylized_form myform wider">
+<% form_for :account, @user do |f| %>
+    <%= f.error_messages %>
+    <p>Use this form to edit your information, then click "Save changes" to save changes.</p>
+	<label>Username
+        <span class="small">Visible to the public.</span>
+    </label>
+	<%= f.text_field :username %>
+		
+	<label>Email
+		<span class="small">See <%= link_to ("Privacy Policy", :controller => :content, :action => :privacy_policy)%>.
+	</label>
+	<%= f.text_field :email %>
+	
+	<label>Avatar
+		<span class="small">Pick your avatar at <a href="http://www.gravatar.com/">Gravatar.com</a></span>
+	</label>
+	<p><a href="http://www.gravatar.com" title="Gravatar"> <%= image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5.new.update(@user.email)}&default=http://backoftheplane.com/images/logo_75.png") %></a></p>
+	
+	<label>Default Biography
+		<span class="small">Enter whatever information you'd like to appear by default when you join a flight.</span>
+	</label>
+	<%= f.text_area :default_bio, :rows => 10, :cols => 10 %>
+
+	<label>Default Interests
+		<span class="small">Separate by commas.</span>
+	</label>
+	<%= f.text_area :default_interests, :rows => 5, :cols => 10 %>
+	<div class="spacer"></div>
+	<p></p>
+	
+	<h1>Change your password</h1>
+	<p>If you want to change your password, enter a new one below</p>
+	<label>New Password
+	    <span class="small">Only if you want to</span>
+	</label>
+	<input id="account_password" name="account[password]" sstype="password" value=""><br />
+
+	<label>Confirm New Password</label>
+    <input id="account_password_confirm" name="account[password_confirm]" size="30" type="password" value="" />
+    <div class="spacer"></div>
+    
+    <p></p>
+    <h1>Save Changes</h1>
+    <p>All done?</p>
+
+	<%= f.submit "Save Changes" %>
+	<div class="spacer"></div>
+<% end %>
+</div>

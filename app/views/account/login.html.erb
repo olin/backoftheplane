@@ -1,0 +1,32 @@
+<% @title_text="Log In"%>
+
+<h2>Log In</h2>
+
+<% if flash[:wrong_password] %>
+	<p style="color: green;"><%= flash[:password] %></p>
+<% end %>
+
+<div class="stylized_form myform">
+    <% form_for :account, @user, :url => {:controller => :account, :action => :login_backend} do |f| %>
+        <%= f.error_messages %>
+        <p>Welcome back!</p>
+        
+        <label>Email
+            <span class="small">Who goes there?</span>
+        </label>
+        <%= f.text_field :email %>
+        
+        <label>Password
+            <span class="small">How do we know it&lsquo;s you?</span>
+        </label>
+        <%= f.password_field :password %>
+        
+        <%= f.submit "Log in" %>
+        <div class="spacer"></div>
+        
+    <% end %>
+</div>
+
+<p>Don't have an account? <%= link_to "Sign Up!", :controller => :account, :action => :signup %></p><br />
+
+

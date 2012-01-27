@@ -1,0 +1,259 @@
+/*
+ * normalization
+ */
+ 
+html, body {
+    margin: 0;
+    padding: 5px;
+    border: none;
+}
+
+body {
+    font-size: 76%; /* normalize font size across browsers */
+}
+
+/*
+ * headers
+ */
+ 
+h1, h2, h3, h4 { font-weight: bold; }
+h1 {margin: 0 0 5px 0;}
+
+/*
+ * page layout
+ */
+ 
+html, body {
+    min-height: 100%;
+}
+
+body {
+    padding-bottom: 50px;
+}
+
+img{
+  border: none;
+}
+
+
+
+
+#page {
+/* fonts */
+	font-size: 1.3em;
+	font-family: Trebuchet MS, Helvetica, sans-serif;
+	
+/* structure */
+	width: 650px;
+	padding: 0px 0;
+	margin: 0 auto;
+}
+
+/*
+ * flashes 
+ */
+ 
+.flash {
+border-radius: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px;
+padding: 10px 20px 10px 50px;
+margin-bottom: 1em;
+}
+ 
+.success { background: #7f9 url(/images/success.png) no-repeat 13px 8px; }
+.warning, .notice { background: #fc5 url(/images/warning.png) no-repeat 13px 8px; }
+.error { background: #f75 url(/images/failure.png) no-repeat 13px 8px; }
+
+/*
+ * header
+ */
+
+#header h1 { margin: 0; }
+#header h1 a {
+display: block;
+padding-top: 135px;
+height: 0;
+overflow: hidden;
+background: url(/images/header.png);
+}
+
+#header-logo {
+position: absolute;
+top: 0;
+left: 0;
+border: 0;
+}
+
+#nav, #nav li { margin: 0; padding: 0; list-style: none; }
+#nav { background: #48b; padding-left: 10px; }
+#nav li { float: left; margin-right: .3em; }
+#nav { overflow: hidden; }
+#nav li a { display: block; background: #69c; font-size: 1.1em; padding: 0.4em 0.7em; color: }
+#nav li a { color: white; text-decoration: none; }
+#nav li a:hover { background: #7ae; border-color: #08a; }
+
+#nav_admin, #nav_admin li { margin: 0; padding: 0; list-style: none; }
+#nav_admin { background: #48b; padding-left: 10px; }
+#nav_admin li { float: left; margin-right: .3em; }
+#nav_admin { overflow: hidden; }
+#nav_admin li a { display: block; background: #69c; font-size: 1.1em; padding: 0.4em 0.7em; color: }
+#nav_admin li a { color: white; text-decoration: none; }
+#nav_admin li a:hover { background: #7ae; border-color: #08a; }
+
+
+/*
+ * log in
+ */
+ 
+#user-status {
+padding: 0.4em 0.75em;
+background: #abc;
+overflow: auto;
+}
+
+#user-status p {
+ float: left;
+ margin: 0;
+}
+ 
+#user-status ul, #user-status li { display: block; margin: 0; padding: 0; list-style: none; }
+#user-status ul li {
+overflow: hidden;
+float: right;
+}
+#user-status ul li a {
+float: left;
+display: block;
+margin-left: .2em;
+font-weight: bold;
+color: #036;
+padding: 0 .5em;
+
+}
+
+#user-status ul li a:hover {
+color: #37a;
+}
+
+/*
+ * main
+ */
+
+#main {
+    background: white;
+    margin: 0;
+    padding: 10px 20px;
+    overflow: auto;
+    border-radius: 0 0 15px 15px; -webkit-border-radius: 0 0 15px 15px; -moz-border-radius: 0 0 15px 15px;
+}
+
+h2 { margin-top: 0.25em; }
+
+
+/*
+ * footer
+ */
+
+#footer {
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+#footer a {
+    color: white;
+}
+
+/*
+ * summary
+ */
+ 
+#datepicker {
+    margin: auto;
+    text-align: center;
+    margin: 5px;
+}
+
+#summary {
+font-size: 1.4em;
+padding: 0 0 0.5em;
+border-bottom: 2px solid #ccc;
+margin: 0.5em;
+}
+
+.flight_user_display {
+    clear: both;
+    margin: 5px;
+    width: 575px;
+    border:solid 2px #b7ddf2;
+    background:#ebf4fb;
+    padding: 5px;
+}
+
+.flight_user_display p {
+  font-size: .7em;
+  float: left;
+}
+
+.flight_user_display_avatar {
+  float: left;
+  margin: 5px;
+  width: 75px;
+}
+
+.flight_user_display_content {
+  float: left;
+  margin: 0 0 0 20px;
+  width: 325px;
+}
+
+.flight_user_display_content h3 {
+    margin: 0;
+}
+
+.flight_user_display_actions {
+  text-align: right;
+  margin: 10px;
+  width: 110px;
+  vertical-align: center;
+  float: right;
+}
+
+.interest_style{
+  font-weight: bold;
+  color: #036;
+}
+
+.interest_section{
+  background-color: #ebf4fb;
+}
+
+.no_bullet{
+  list-style-type: none;
+  margin-left: -40px;
+}
+
+.flight_result {
+    border:solid 2px #b7ddf2;
+    background:#ebf4fb;
+    padding: 3px;
+}
+
+.flight_result .flight_button {
+    float: right;
+    padding-top: 7px;
+}
+
+.flight_result p.dateroute {
+    font-size: .9em;
+}
+
+.flight_result h3 {
+    margin: 3px;
+}
+
+.flight_result p {
+    margin: 3px;
+    font-size: .8em;
+}
+

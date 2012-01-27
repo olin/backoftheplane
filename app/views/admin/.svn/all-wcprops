@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/ohack/!svn/ver/300/app/views/admin
+END
+metrics.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/ohack/!svn/ver/214/app/views/admin/metrics.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/ohack/!svn/ver/206/app/views/admin/index.html.erb
+END
+all_flights.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/ohack/!svn/ver/298/app/views/admin/all_flights.html.erb
+END
+all_users.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/ohack/!svn/ver/214/app/views/admin/all_users.html.erb
+END
+edit_flight.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/ohack/!svn/ver/300/app/views/admin/edit_flight.html.erb
+END
+edit_user.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/ohack/!svn/ver/232/app/views/admin/edit_user.html.erb
+END

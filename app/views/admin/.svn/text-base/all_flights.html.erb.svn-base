@@ -1,0 +1,35 @@
+<% @count = 0 %>
+<%= render :partial => "partials/admin_nav" %>
+
+<h1>Flights</h1>
+
+<div class="will_paginate"><%= will_paginate @flights %></div><br />
+
+<table>
+  <tr>
+    <th><%= link_to "Flight ID", :params => { :order => "id", :asc => params[:order] == "id" ? (params[:asc] == 'asc' ? "desc" : "asc") : "asc" } %></th>
+    <th><%= link_to "Name", :params => { :order => "flight_name", :asc => params[:order] == "flight_name" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
+    <th><%= link_to "Origin", :params => { :order => "airport_code_from", :asc => params[:order] == "airport_code_from" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
+    <th><%= link_to "Destination", :params => { :order => "airport_code_to", :asc => params[:order] == "airport_code_to" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
+	<th><%= link_to "Date", :params => { :order => "flight_date", :asc => params[:order] == "flight_date" ? params[:asc] == 'asc' ? "desc" : "asc" : "desc" } %></th>
+	<th><%= link_to "Created At", :params => { :order => "created_at", :asc => params[:order] == "created_at" ? params[:asc] == 'asc' ? "desc" : "asc" : "desc" } %></th>
+  </tr>
+
+<% for flight in @flights %>
+<% @count+=1 %>
+<% if @count%2 == 0 %>
+  <tr>
+<% else %>
+  <tr class="zebra">
+<% end %>
+    <td><%= link_to h(flight.id), :controller => :admin, :action => :edit_flight, :params => { :id => flight.id }   %></td>
+    <td><%=h flight.flight_name %></td>
+    <td><%= flight.airport_code_from %></td>
+    <td><%= flight.airport_code_to %></td>
+	<td><%= flight.flight_date %></td>
+	<td><%= flight.created_at.strftime("%a, %m/%d/%y %I:%M%p") %></td>
+  </tr>
+<% end %>
+</table>
+<div class="will_paginate"><%= will_paginate @flights %></div>
+</div>

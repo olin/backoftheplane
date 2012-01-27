@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/ohack/!svn/ver/287/app/views/partials
+END
+_new_flight_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/ohack/!svn/ver/250/app/views/partials/_new_flight_form.html.erb
+END
+_admin_nav.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/ohack/!svn/ver/287/app/views/partials/_admin_nav.html.erb
+END
+_flight_result_row.erb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/ohack/!svn/ver/281/app/views/partials/_flight_result_row.erb
+END
+_login_box.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/ohack/!svn/ver/135/app/views/partials/_login_box.html.erb
+END

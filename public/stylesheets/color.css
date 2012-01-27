@@ -1,0 +1,22 @@
+/*
+ * layout
+ */
+ 
+body {
+background: #005c8a url(/images/background/sky.png) bottom left repeat-x;
+background-position: -300px 100%;
+}
+
+/*
+ * links
+ */
+ 
+a:link { color: #05a; }
+a:hover { color: #08c; }
+a:visited { color: #044; }
+
+/*
+ * headers
+ */
+ 
+h1, h2, h3, h4 { color: #038; }

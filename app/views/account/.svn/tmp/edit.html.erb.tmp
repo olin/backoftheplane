@@ -1,0 +1,61 @@
+<% @title_text="User Information"%>
+<h2>Account Information for User: <%= @user.username %></h2>
+<h3>These are your current account settings:</h3>
+<p><%= image_tag "http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5.new.update(@user.email)}&default=" %></p>
+<p><strong>Username:</strong> <%= @user.username %></p>
+<p><strong>Email <small>(not visible to the public)</small>:</strong> <%= @user.email %></p>
+<p><strong>Default Biography:</strong> <%= @user.default_bio %></p>
+<p><strong>Default Interests:</strong> <%= @user.default_interests %></p>
+
+<h3>Edit your information:</h3>
+<div id="stylized_form" class="myform">
+<% form_for :account, @user do |f| %>
+    <%= f.error_messages %>
+        <p>Use this form to edit your information, then click "Update" to save changes.</p>
+	<p>
+	 <label>Username
+            <span class="small">Visible to the public.</span>
+        </label>
+<<<<<<< .mine
+	<%= f.text_field :username %><br />
+	</p>
+	<p class="avatar">
+	<label>Avatar
+		<span class="small">Pick your avatar at <a href="http://www.gravatar.com/">Gravatar.com</a></span>
+	</label>
+		<%= image_tag "http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5.new.update(@user.email)}&default=" %>
+	</p>
+	<p>
+=======
+	<%= f.text_field :username %>
+
+>>>>>>> .r184
+	<label>Email
+		<span class="small">See <%= link_to ("Privacy Policy", :controller => :content, :action => :privacy_policy)%>.
+		</label>
+	<%= f.text_field :email %>
+	</p><br />
+	<p><label><span style="font-size:110%">Change your password</span></label><br />
+	</p><br/>
+	  <label>New Password</label>
+	  <input id="account_password" name="account[password]" sstype="password" value=""><br />
+
+	<label>Confirm New Password</label><br />
+    <input id="account_password_confirm" name="account[password_confirm]" size="30" type="password" value="" />
+	</p>
+	<p>
+	<label>Default Biography</label>
+		<span class="small">Enter whatever information you'd like to appear by default when you join a flight.</span>
+			<%= f.text_area :default_bio ,:rows => 10, :cols => 10 %>
+
+	<label>Default Interests
+		<span class="small">Separate by commas.</span></p>
+		</label>
+	<%= f.text_field :default_interests %>
+
+	<%= f.submit "Update" %>
+	</p>
+<% end %>
+</div>
+
+<%= link_to 'Home', :controller => :home, :action => :index %>

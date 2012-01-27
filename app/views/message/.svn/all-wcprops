@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/ohack/!svn/ver/241/app/views/message
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/ohack/!svn/ver/233/app/views/message/new.html.erb
+END
+read.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/ohack/!svn/ver/228/app/views/message/read.html.erb
+END
+inbox.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/ohack/!svn/ver/241/app/views/message/inbox.html.erb
+END

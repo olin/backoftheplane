@@ -1,0 +1,23 @@
+<div style="float: left;">
+<h2>Welcome to Back of the Plane!</h2>
+<p><span style="font-size:120%">Back of the Plane seeks to connect airplane passengers with other passengers on their flight based on similar interests.</span></p>
+<p><b>How it works:</b></p>
+<p>You tell us what flight you're on, and we tell you who else is flying with you. You can view their biographies and interests and list your own, then correlate your seating to make sure you sit next to someone interesting.</p>
+<p>To get started, just enter your flight information below and find out who's on your flight!</p>
+<p></p>
+<p><h2>Look up flight</h2></p>
+<%= form_tag(url = {:action => :flight_query})%>
+<p><label>Flight number <br /><%= text_field "flight", "number" %></label></p>
+<p><label>Date <br/><div id="datepicker"></div>
+<%= hidden_field "flight", "date" %></label></p>
+<p><label>Departure Airport (ex. BOS)<br/><%=text_field "flight","airport_code"%>
+<%= submit_tag "Lookup flight" %>
+<<<<<<< .mine
+</form>=======
+</form>
+
+</div>
+
+<p style="clear: both;"></p>
+
+<%= render :partial => 'partials/login_box.html.erb' %>>>>>>>> .r111

@@ -1,0 +1,49 @@
+<% @title_text="Inbox"%>
+
+<h2>Inbox</h2>
+<p><img src="/images/message_new.png" alt="compose message" /> <%= link_to ("Compose Message", :controller => :message, :action => :new)%></p><br />
+<% new_messages = unread_message_count_num %>
+<% if new_messages > 0 %>
+    <p><strong><%= pluralize(new_messages.to_s, "new message") %>.</strong></p>
+<% else %>
+	<p>No new messages.</p>
+<% end %>
+<table id="inbox" width="100%">
+    <% if @messages.length > 0 %>
+            <tr>
+                <th></th>
+                <th class="user">user</th>
+                <th class="subject">subject</th>
+                <th class="date">date</th>
+            </tr>
+            <% for message in @messages %>
+            <tr>
+                <td class="icon">
+                    <% if message["to_from"] == "to" %>
+                        <img src="/images/message_sent.png" alt="sent to" />
+                    <% else %>
+                        <img src="/images/message_received.png" alt="received from" />
+                    <% end %>
+                </td>
+                <td class="user"><% unless message.read_message or message["to_from"] == "to"%>
+                        <strong><%= message["other_user"].username %></strong>
+                    <% else %>
+                        <%= message["other_user"].username %>
+                    <% end %>
+                </td>
+                <td class="subject"><% unless message.read_message or message["to_from"] == "to" %>
+                        <strong><%= link_to(message.subject, :controller => :message, :action => :read, :id => message.id) %></strong>
+                    <% else %>
+                        <%= link_to(message.subject, :controller => :message, :action => :read, :id => message.id) %>
+                    <% end %>
+                </td>
+                <td class="date"><% unless message.read_message or message["to_from"] == "to" %>
+                        <strong><%= message.created_at.to_s(:long) %></strong>
+                    <% else %>
+                        <%= message.created_at.to_s(:long) %>
+                    <% end %>
+                </td>
+            </tr>
+    <% end %>
+    <% end %>
+</table>

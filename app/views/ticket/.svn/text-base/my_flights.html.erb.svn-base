@@ -1,0 +1,14 @@
+<h2>Your Flights</h2>
+<%= image_tag "airplane.png", :size => "50x25", :alt => "airplane" %>
+<% if @user.tickets.length > 0 %>
+    <% for ticket in @user.tickets %>
+        <h3><%= link_to(ticket.flight.airline + " " + ticket.flight.flight_name.upcase, :controller => :ticket, :action => :flight, :id => ticket.flight.id) %></h3>
+        <% @new_users = users_added_to_flight_since_previous_login(ticket.flight.id) %>
+        <% if @new_users > 0 %>
+            <p><strong><%= pluralize(@new_users, "person") %></strong> joined this flight since you last visited.</p>
+        <% end %>
+        <p><%= link_to("remove this flight", :controller => :ticket, :action => :delete_ticket, :id => ticket.id) %></p>
+    <% end %>
+<% else %>
+    <p>You don't have any flights. To get started, <a href="/" title="home">add a flight</a>.</p>
+<% end %>

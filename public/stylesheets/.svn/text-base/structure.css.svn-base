@@ -1,0 +1,132 @@
+/*
+ * message
+ */ 
+ 
+#message{
+	/* stuff for message */
+}
+ 
+/*
+ * paragraph
+ */ 
+	
+p.from{
+	font-size: 115%; /* normalize font size across browsers */
+}
+
+/* ----------- My Form ----------- */
+.mymessage{
+    margin:0 auto;
+    width:400px;
+    padding:14px;
+}
+
+	
+/*---stylized_message*/
+#stylized_message{
+    border:solid 2px #b7ddf2;
+    background:#ebf4fb;
+}
+
+#stylized_message h1 {
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+#stylized_message p.subject{
+	color: #038; 
+	font-weight: bold;
+	margin-left:7em;
+}
+
+#stylized_message label{
+    display:block;
+    font-weight:bold;
+    text-align:right;
+    width:100px;
+    float:left;
+}
+
+#stylized_message button{
+    clear:both;
+    margin-left:150px;
+    width:125px;
+    height:31px;
+    background:#666666 url(img/button.png) no-repeat;
+    text-align:center;
+    line-height:31px;
+    color:#FFFFFF;
+    font-size:11px;
+    font-weight:bold;
+}
+
+/*
+ * inbox
+ */
+ 
+#inbox{
+	/* stuff for entire inbox */
+}
+ 
+#inbox th{
+ border-bottom:1px solid black;
+}
+ 
+#inbox td{
+ border-bottom:1px solid gray;
+}
+ 
+#inbox .icon {
+	text-align:center;
+}
+ 
+#inbox .user{
+	text-align:left;
+}
+ 
+#inbox .subject{
+	text-align:left;
+} 
+ 
+#inbox .date{
+	text-align:left;
+}
+
+/*
+ * boxes for reply/delete buttons
+ */
+ 
+div.messagebutton{
+	width:60px;
+	padding:5px;
+	border:solid 1px #aacfe4;
+	margin:0px;
+	margin-left:7em;
+	text-align:center;
+	background:#EEEEEE;
+}
+
+div.bodybox{
+    padding:2px 4px 2px 4px;
+    border-left:solid 1px #aacfe4;
+    width:260px;
+    margin:2px 0px 20px 10px;
+	margin-left:7em;
+}
+
+div.tobox{
+    padding:2px 4px 2px 4px;
+    border-left:solid 1px #aacfe4;
+    width:150px;
+    margin:2px 0px 20px 10px;
+	margin-left:7em;
+}
+
+div.imagebox{
+    padding:2px 2px 2px 2px;
+    border-left:solid 1px #aacfe4;
+    width:80px;
+    margin:2px 0px 20px 10px;
+	margin-left:7em;
+}

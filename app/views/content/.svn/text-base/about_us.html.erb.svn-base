@@ -1,0 +1,18 @@
+<% @title_text="About Us"%>
+
+<h1>About Us</h1>
+<p>Back of the Plane can be reached by <a href="mailto:theback@backoftheplane.com"> email.</a>
+
+<p>Back of the Plane is produced by the members of <a href="http://ohack.tumblr.com">ohack</a>, the <a href="http://www.olin.edu">Olin College</a> hackathon group. It was built in 24 hours during October 2009. </p>
+
+<h2>Mission Statement:</h2>
+<p>Back of the Plane seeks to further on-plane harmony and positive social interaction between passengers by allowing passengers to choose seat positions based on knowledge of other passengers. Through use of Back of the Plane, passengers can optimize their travel experiences and interact more easily with other members of the global community.</p>
+
+<h2>How to Use Back of the Plane:</h2>
+<p>Passengers sign up to use Back of the Plane by entering an email and public username.</p>
+<p>Back of the Plane users then enter each flight as a "ticket" by flight number and time of flight.</p>
+<p>Users may view the listed interests of other passengers on the specified flight and interact via messaging.</p>
+<p>Based on interactions on Back of the Plane, users choose seats on their flights (available through individual airlines) to be seated near other passengers with similar interests.</p>
+
+<h2>Disclaimer:</h2>
+<p><a href="http://backoftheplane.com">Back of the Plane</a> is not responsible for any 'creeping' or 'stalking' which may occur as a result of using our services.</p>

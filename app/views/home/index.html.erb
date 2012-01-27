@@ -1,0 +1,83 @@
+<script type="text/javascript">$j(function(){
+$j('#datepicker').datepicker({inline:true, gotoCurrent: true, onSelect: function(dateText, inst){$j('#flight_flight_date').val(dateText);}});
+	});
+</script>
+
+<p id="summary">Back of the Plane seeks to connect airplane passengers with other passengers on their flight based on similar interests.</p>
+
+<div style="float: left; width: 38%; margin-right: 1em;">
+
+<h1>Lookup Flights</h1>
+<div class="stylized_form flightpicker">
+    <%= form_remote_tag(:url => { :action => "flight_query" }, :update => :flights, :html => {:id => "query"})%>
+        
+        <div id="datepicker"></div>
+        <br />
+        
+        <%= hidden_field "flight", "flight_date" %></p>
+        <label>Flight number
+            <span class="small">(ex. CO100)</span>
+        </label>
+        <%=text_field "flight","flight_name"%>
+        <div class="spacer"></div>
+        
+        <label>Departure Airport
+            <span class="small">(ex. BOS)</span>
+        </label>
+        <%=text_field "flight","airport_code_from1"%>
+        <div class="spacer"></div>
+        
+        <label>Arrival Airport
+            <span class="small">(ex. NYC)</span>
+        </label>
+        <%=text_field "flight","airport_code_to1"%>
+        <div class="spacer"></div>
+        
+        <label>Airline
+            <span class="small">(ex. Delta)</span>
+        </label>
+        <%=text_field "flight","airline"%>
+        <div class="spacer"></div>
+        
+        <%= submit_tag "Lookup flight" %>
+        <div class="spacer"></div>
+    </form>
+</div>
+
+<script type="text/javascript">
+  $j('#flight_airport_code_from1').autocomplete({ serviceUrl:'/home/autocomplete_for_airport' });
+</script>
+<script type="text/javascript">
+  $j('#flight_airport_code_to1').autocomplete({ serviceUrl:'/home/autocomplete_for_airport' });
+</script>
+
+<style type="text/css">
+.autocomplete-w1 { background:url(img/shadow.png) no-repeat bottom right; position:absolute; top:0px; left:0px; margin:6px 0 0 6px; /* IE6 fix: */ _background:none; _margin:1px 0 0 0; }
+.autocomplete { border:1px solid #999; background:#FFF; cursor:default; text-align:left; max-height:350px; overflow:auto; margin:-6px 6px 6px -6px; /* IE6 specific: */ _height:350px;  _margin:0; _overflow-x:hidden; }
+.autocomplete .selected { background:#F0F0F0; }
+.autocomplete div { padding:2px 5px; white-space:nowrap; }
+.autocomplete strong { font-weight:normal; color:#3399FF; }
+</style>
+
+<%= observe_form :query, :url => { :action => :flight_query }, :frequency => 0.25, :update => :flights %>
+
+</div>
+
+<div id="flights" style="float: left; width: 53%; padding-left: 1em; border-left: 1px solid #ccc; padding-right: 1em; overflow-y: scroll; height: 600px;">
+
+<h1>Popular flights</h1>
+
+<% if @flights.length>0 %>
+	<% for flight in @flights %>
+	  <%= render :partial => "partials/flight_result_row", :locals => {:flight => flight} %>
+	<% end %>
+<% else %>
+  <p>There are no flights.</p>
+<% end %>
+
+<% if @flight_temp %>
+    <%= render :partial => "partials/new_flight_form" %>
+<% end %>
+</div>
+
+<p style="clear: both;"></p>

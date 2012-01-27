@@ -1,0 +1,40 @@
+<<<<<<< .mine
+<div >
+			<script type="text/javascript">$(function(){
+			$('#datepicker').datepicker({inline:true, onSelect: function(dateText, inst){$('#flight_date').val(dateText);}});
+				});
+			</script>
+=======
+<script type="text/javascript">$j(function(){
+$j('#datepicker').datepicker({inline:true, gotoCurrent: true, onSelect: function(dateText, inst){$j('#flight_flight_date').val(dateText);}});
+	});
+</script>
+>>>>>>> .r170
+
+<!--<h2>Welcome to Back of the Plane!</h2>-->
+<p><span style="font-size:120%">Back of the Plane seeks to connect airplane passengers with other passengers on their flight based on similar interests.</span></p>
+
+<!--<h3>How it works:</h3>
+<p>You tell us what flight you're on, and we tell you who else is flying with you. You can view their biographies and interests and list your own, then correlate your seating to make sure you sit next to someone interesting.</p>
+<p>To get started, just enter your flight information below and find out who's on your flight!</p>-->
+
+<div style="float: left; margin-right: 1em; padding-right: 1em; border-right: 1px solid #ccc;">
+
+<h2>Lookup flight</h2>
+<%= form_remote_tag(:url => { :action => "flight_query" }, :update => { :success => "flights", :failure => "flights" })%>
+<p><div id="datepicker"></div>
+<%= hidden_field "flight", "flight_date", :value => Time.now.strftime("%m/%d/%Y") %></p>
+<p><label>Flight number (ex. CC100)</label><br/><%=text_field "flight","flight_name"%></p>
+<p><label>Departure Airport (ex. BOS)</label><br/><%=text_field "flight","airport_code_from"%></p>
+<p><label>Arrival Airport (ex. NYC)</label><br/><%=text_field "flight","airport_code_to"%></p>
+<p><label>Airline</label><br/><%=text_field "flight","airline"%></p>
+<p><%= submit_tag "Lookup flight" %></p>
+</form>
+
+</div>
+
+<div id="flights">
+
+</div>
+
+<p style="clear: both;"></p>

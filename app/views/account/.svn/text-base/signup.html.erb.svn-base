@@ -1,0 +1,35 @@
+<% @title_text="Sign Up"%>
+<h2>Sign Up</h2>
+
+<%= error_messages_for(:user) %>
+
+<div class="stylized_form myform">
+    <% form_for :account, @user, :url => {:action => :signup_backend} do |f| %>
+        <h1>Sign up for Back of the Plane</h1>
+        <%= f.error_messages %>
+        <p>Just a few easy questions!</p>
+
+        <label>Email Address
+            <span class="small">We keep this secret.</span>
+        </label>
+        <%= f.text_field :email %>
+    
+        <label>Username
+            <span class="small">Your public display name.</span>
+        </label>
+        <%= f.text_field :username %>
+    
+        <label>Password
+            <span class="small">Pick something good!</span>
+        </label>
+        <%= f.password_field :password %>
+    
+        <label>Confirm Password
+            <span class="small">No typos!</span>
+        </label>
+        <%= f.password_field :password_confirm %>
+
+        <%= f.submit "Sign up" %>
+        <div class="spacer"></div>
+    <% end %>
+</div>

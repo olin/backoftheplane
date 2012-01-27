@@ -1,0 +1,14 @@
+<div style="float: left;">
+			<script type="text/javascript">$(function(){
+			$('#datepicker').datepicker({inline:true, onSelect: function(dateText, inst){$('#flight_date').val(dateText);}});
+				});
+			</script>
+			</div>
+<p><h2>Look up flight</h2></p>
+<%= form_tag(url = {:action => :flight_query})%>
+<p><label>Flight number <br /><%= text_field "flight", "number" %></label></p>
+<p><label>Date <br/><div id="datepicker"></div>
+<%= hidden_field "flight", "date" %></label></p>
+<p><label>Departure Airport (ex. BOS)<br/><%=text_field "flight","airport_code"%>
+<%= submit_tag "Look up flight" %>
+</form>

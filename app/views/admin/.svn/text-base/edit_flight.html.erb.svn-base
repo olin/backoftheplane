@@ -1,0 +1,36 @@
+<% @title_text="Admin &gt; Flight Information"%>
+<h2>Account Information for <%= @flight.flight_name %> on <%= @flight.flight_date.to_s %></h2>
+
+<h3>Edit information:</h3>
+<div class="stylized_form myform wider">
+<% form_for :admin, @flight do |f| %>
+    <%= f.error_messages %>
+    <p>Use this form to edit the information, then click "Save changes" to save changes.</p>
+	<label>Flight Name
+        <span class="small">CO100</span>
+    </label>
+	<%= f.text_field :flight_name %>
+		
+	<label>Flight Date</label>
+	<%= f.text_field :flight_date %>
+	
+	<label>From Airport</label>
+	<%= f.text_field :airport_code_from %>
+	
+	<label>To Airport</label>
+	<%= f.text_field :airport_code_to %>
+
+	<label>Airline</label>
+    <%= f.text_field :airline %>
+    <div class="spacer"></div>
+        
+	<label>Delete</label>
+	<%= check_box :admin, :delete %>
+	
+    <h1>Save Changes</h1>
+    <p>All done?</p>
+
+	<%= f.submit "Save Changes" %>
+	<div class="spacer"></div>
+<% end %>
+</div>

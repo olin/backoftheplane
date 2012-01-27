@@ -1,0 +1,34 @@
+<% @title_text="Read a Message"%>
+
+<h2><%= @message.subject %></h2>
+
+<div id="stylized_message" class="mymessage">
+    
+        <label><%= @message["to_from"] %></label>
+		<div class="imagebox">
+			<p><%= image_tag "http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5.new.update(@message["other_user"].email)}&default=" %></p>
+		</div>
+		<div class="tobox">
+			<p><%= @message["other_user"].username %></p>
+		</div>
+		<br />
+	
+        <label>body</label>
+		<div class="bodybox">
+			<p><%= @message.message %></p>
+        </div>
+        <br />
+		
+		
+		<p class="messagebody">
+			<div class="messagebutton">
+				<%= link_to("Reply", :controller => :message, :action => :new, :to_username => @message["other_user"].username, :subject => @message.subject)%>
+			</div>
+		</p>
+		<br />
+		<p class="messagebody">
+			<div class="messagebutton"
+				<%= link_to("Delete", :controller => :message, :action => :delete, :id => @message.id) %>
+			</div>
+		</p>
+</div>

@@ -1,0 +1,12 @@
+<% @title_text="Admin &gt; Metrics" %>
+
+<%= render :partial => "partials/admin_nav" %>
+
+<h1>Metrics</h1>
+<p>Sup dawg, I heard you like metrics.</p>
+<p>Don't forget about our <a href="http://analytics.google.com">Google Analytics!</a></p>
+<h3>Growth Overall:</h3>
+<div class="chart"><% url = users_chart_url %><img src="<%= url[0] %>" /><img src="<%= url[1] %>" /></div>
+<div class="clearer"><br /></div>
+<h3>Growth Today:</h3>
+<div class="chart"><% url = users_hours_chart_url %><img src="<%= url[0] %>" /><img src="<%= url[1] %>" /></div>

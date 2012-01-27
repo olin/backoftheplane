@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/ohack/!svn/ver/243/app/helpers
+END
+application_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/ohack/!svn/ver/1/app/helpers/application_helper.rb
+END
+ticket_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/ohack/!svn/ver/223/app/helpers/ticket_helper.rb
+END
+message_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/ohack/!svn/ver/243/app/helpers/message_helper.rb
+END
+admin_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/ohack/!svn/ver/214/app/helpers/admin_helper.rb
+END

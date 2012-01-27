@@ -1,0 +1,13 @@
+
+<% unless session[:user_id] %>
+  	<p>You are not currently logged in.</p>
+		<ul>
+		  <li><%= link_to "Sign up", :controller => :account, :action => "signup" %></li>
+		  <li><%= link_to "Log in", :controller => :account, :action => "login" %></li>
+		</ul>
+	<% else %>
+    <p>You are logged in as <strong class="username"><%= session[:user_username] %></strong>.</p>
+		<ul>
+		  <li><%= link_to "Sign Out", :controller => :account, :action => "logout" %></li>
+		</ul>
+<% end %>

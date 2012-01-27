@@ -1,0 +1,45 @@
+<h1>New Flight</h1>
+<div class="stylized_form flightpicker">
+    <%= form_tag(:action => "flight_new") %>
+        <h1>Add New Flight</h1>
+        <label>Date
+            <span class="small">(1/1/1970)</span>
+        </label>
+        <%= text_field "flight","flight_date", :value => @flight_temp[:flight_date] %>
+        <div class="spacer"></div>
+        
+        <label>Flight Number
+            <span class="small">(ex. CO100)</span>
+        </label>
+        <%=text_field "flight","flight_name", :value => @flight_temp[:flight_name] %>
+        <div class="spacer"></div>
+        
+        <label>Departure Airport
+            <span class="small">(ex. BOS)</span>
+        </label>
+        <%=text_field "flight","airport_code_from", :value => @flight_temp[:airport_code_from] %>
+        <div class="spacer"></div>
+        
+        <label>Arrival Airport
+            <span class="small">(ex. NYC)</span>
+        </label>
+        <%=text_field "flight","airport_code_to", :value => @flight_temp[:airport_code_to] %>
+        <div class="spacer"></div>
+        
+        <label>Airline
+            <span class="small">(ex. Delta)</span>
+        </label>
+        <%=text_field "flight","airline", :value => @flight_temp[:airline] %>
+        <div class="spacer"></div>
+        
+        <%= submit_tag "Add flight" %>
+        <div class="spacer"></div>
+    </form>
+</div>
+
+<script type="text/javascript">
+  $j('#flight_airport_code_from').autocomplete({ serviceUrl:'/home/autocomplete_for_airport' });
+</script>
+<script type="text/javascript">
+  $j('#flight_airport_code_to').autocomplete({ serviceUrl:'/home/autocomplete_for_airport' });
+</script>

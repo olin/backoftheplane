@@ -1,0 +1,11 @@
+<h1>Flights</h1>
+
+<% if @flights.length>0 %>
+	<% for flight in @flights %>
+	    <%= render :partial => "partials/flight_result_row", :locals => {:flight => flight} %>
+	<% end %>
+<% else %>
+<p>There are no flights that match your criteria.</p>
+<% end %>
+
+<%= render :partial => "partials/new_flight_form" %>

@@ -1,0 +1,29 @@
+<% @count = 0 %>
+<%= render :partial => "partials/admin_nav" %>
+
+<h1>User Profiles</h1>
+
+<div class="will_paginate"><%= will_paginate @users %></div><br />
+
+<table>
+  <tr>
+    <th><%= link_to "Username", :params => { :order => "username", :asc => params[:order] == "username" ? (params[:asc] == 'asc' ? "desc" : "asc") : "asc" } %></th>
+    <th><%= link_to "Email", :params => { :order => "email", :asc => params[:order] == "email" ? params[:asc] == 'asc' ? "desc" : "asc" : "asc" } %></th>
+	<th><%= link_to "Last Login", :params => { :order => "last_login_at", :asc => params[:order] == "last_login_at" ? params[:asc] == 'asc' ? "desc" : "asc" : "desc" } %></th>
+  </tr>
+
+<% for user in @users %>
+<% @count+=1 %>
+<% if @count%2 == 0 %>
+  <tr>
+<% else %>
+  <tr class="zebra">
+<% end %>
+    <td><%= link_to h(user.username), :controller => :admin, :action => :edit_user, :params => { :id => user.id }   %></td>
+    <td><%=h user.email %></td>
+	<td><%= user.last_login_at ? user.last_login_at.strftime("%a, %m/%d/%y %I:%M%p") : "" %></td>
+  </tr>
+<% end %>
+</table>
+<div class="will_paginate"><%= will_paginate @users %></div>
+</div>

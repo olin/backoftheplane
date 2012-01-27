@@ -1,0 +1,24 @@
+<% @title_text="Write a Message"%>
+
+<h2>Write a Message</h2>
+
+<div class="stylized_form myform wider">
+    <% form_for :message, @message, :url => {:controller => :message, :action => :new_backend} do |f| %>
+        <h1>Communicate with other users!</h1>
+        <%= f.error_messages %>
+		<p></p>
+
+        <label>to</label>
+        <%= f.text_field(:user_to_username, :value => @user_to_username)%>
+    
+        <label>subject</label>
+        <%= f.text_field(:subject, :value => @subject)%>
+    
+        <label>body</label>
+        <%= f.text_area(:message)%>
+
+        <%= f.submit "Send" %>
+        <div class="spacer"></div>
+
+    <% end %>
+</div>

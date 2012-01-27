@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/ohack/!svn/ver/241/db/migrate
+END
+20091010170936_create_messages.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/ohack/!svn/ver/241/db/migrate/20091010170936_create_messages.rb
+END
+20091010170932_create_flights.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/ohack/!svn/ver/152/db/migrate/20091010170932_create_flights.rb
+END
+20091010170928_create_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/ohack/!svn/ver/206/db/migrate/20091010170928_create_users.rb
+END
+20091010170942_create_tickets.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/ohack/!svn/ver/5/db/migrate/20091010170942_create_tickets.rb
+END

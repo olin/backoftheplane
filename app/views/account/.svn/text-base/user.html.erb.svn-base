@@ -1,0 +1,13 @@
+<h2>Profile of <span class="teal"><%= @user.username %></span></h2>
+<% unless @friends || @user.id == session[:user_id]%>
+<div class="blueback">
+	<div class="box"><%= link_to "Add User to Friends", :controller => "friends", :action => "friend_request", :params => {:user_id => @user.id} %>
+	</div>
+</div>
+<% end %>
+<% if @show %>
+	<h2>Sleep of <span class="teal"><%= @user.realname %></span></h2>
+	<div class="blueback">
+	<%= render :partial => "partials/chart.html.erb" %>
+	</div>
+<% end %>

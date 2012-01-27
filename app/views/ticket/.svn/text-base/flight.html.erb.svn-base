@@ -1,0 +1,99 @@
+<h2><%= @flight.airline %> <%= @flight.flight_name.upcase %> on <%= @flight.flight_date.to_date.to_s(:long) %></h2>
+
+<h3><%= @flight.airport_code_from.upcase %> to <%= @flight.airport_code_to.upcase %></h3>
+
+<% if @ticket %>
+
+<h3>People on this flight</h3>
+
+<% 
+@tickets.reject!{|ticket| ticket==@ticket}
+@tickets.insert(0,@ticket)
+%>
+<% for ticket in @tickets %>
+<div class="flight_user_display">
+    <div class="flight_user_display_avatar">
+    	<%= image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5.new.update(ticket.user.email)}&default=http://backoftheplane.com/images/logo_75.png", :class => "flight_user_avatar") %>
+    </div>
+    <div class="flight_user_display_actions">
+        <% unless session[:user_id] == ticket.user.id %>
+            <%= link_to(image_tag("message_new_big.png"), :controller => :message, :action => :new, :to_username => ticket.user.username) %>
+        <% else %>
+            <script type="text/javascript">
+                function callPublish(msg, attachment) {
+            	    FB.ensureInit(function () {
+            	        var msg = 'I just put my flight on Back of the Plane to meet other people with my interests. I am on Flight <%= @flight.airline %> <%= @flight.flight_name.upcase %> on <%= @flight.flight_date.to_date.to_s(:long) %>. Check out http://backoftheplane.com/ to add your flights!';
+            	        var attachment = {'media':[{'type':'image','src':'http://backoftheplane.com/images/airplane.png','href':'http://backoftheplane.com'}]}
+                	    FB.Connect.streamPublish(msg, attachment, null, null, 'Share your flight on facebook.', null);
+            		});
+            	}
+            </script>
+            <a href="javascript:callPublish();"><img src="/images/facebook_connect.gif" /></a>
+        <% end %>
+    </div>
+    <div class="flight_user_display_content">
+        <h3><%= ticket.user.username %><% if session[:user_id]==ticket.user.id %> (you)<% end %></h3>
+    	<p><em><%= ticket.interests %></em></p>
+    	<p><%= ticket.bio %></p>
+    	<% if ticket.seat != "" %><p><%= ticket.user.username %> is in <%= ticket.seat %></p><% end %>
+    </div>
+    <div class="spacer" style="clear:both"></div>
+</div>
+
+<% end %>
+
+<h3>Top interests on this flight</h3>
+<ul class="no_bullet">
+	<% for interest in @interests_hash[0..9] %>
+	<div class="interest_section">
+	<li><div class="interest_style"><%= interest[0] %></div>
+		<ul>
+		<li class="no_bullet"><%= if @interests_people_hash[interest[0]] then @interests_people_hash[interest[0]].join(', ') else '' end %>
+		</ul>
+	</div><br/>
+	<% end %>
+</ul>
+
+
+<% else %>
+	<% if @flight.tickets.length > 0 %>
+		<h3>People on this flight</h3>
+		<ul><% for ticket in @flight.tickets %>
+			<strong><li style="display:inline; padding:5px"><%= ticket.user.username + " "%></strong>
+		<% end %></ul>
+	
+		<!-- Only works when user is logged in -->
+  		<% if @interests_hash %>
+			<h3>Top interests on this flight</h3>
+			<ul><% for interest in @interests_hash[0..9] %>
+				<li style="display:inline; padding:5px"><%= interest[0] %>
+			<% end %></ul>
+		<% end %>
+	<% end %>
+
+<h3>Add yourself to this flight</h3>
+<div class="stylized_form myform wider">
+<%= form_tag(url = {:controller => :ticket, :action => :add_ticket, :id => @flight.id})%>
+<p>What do you want to tell others on this flight?</p>
+
+<label>Interests
+    <span class="small">separate with commas</span>
+</label>
+<%= text_area  "ticket", "interests", :value => (if @user then @user.default_interests else '' end), :rows => 5 %>
+<div class="spacer"></div>
+
+<label>Biography</label>
+<%= text_area "ticket", "bio", :value=> (if @user then @user.default_bio else '' end) %>
+<div class="spacer"></div>
+
+<label>Seat Number
+    <span class="small">super optional</a>
+</label>
+<%= text_field "ticket", "seat" %>
+<div class="spacer"></div>
+
+<%= submit_tag "Add yourself to this flight" %>
+<div class="spacer"></div>
+</form>
+
+<% end %>

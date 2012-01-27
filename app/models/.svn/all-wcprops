@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/ohack/!svn/ver/299/app/models
+END
+flight.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/ohack/!svn/ver/299/app/models/flight.rb
+END
+user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/ohack/!svn/ver/94/app/models/user.rb
+END
+ticket.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/ohack/!svn/ver/242/app/models/ticket.rb
+END
+message.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/ohack/!svn/ver/107/app/models/message.rb
+END
+account_mailer.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/ohack/!svn/ver/220/app/models/account_mailer.rb
+END
